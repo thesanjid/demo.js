@@ -26,6 +26,7 @@ console.log(isUserLoggedIn(true));
 
 
 
+
 function isEven(number) {
   if (number % 2 === 0) {
     return "Even";
@@ -34,5 +35,16 @@ function isEven(number) {
 }
 
 console.log(isEven(7)); // Odd
+
+
+function isEven(number) {
+  if (number % 2 === 0) {
+    return "Even";
+  }
+  return "Odd";
+}
+
+console.log(isEven(7)); // Odd
+
 
 
