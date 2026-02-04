@@ -38,7 +38,7 @@ console.log(isEven(7)); // Odd
 
 
 function isEven(number) {
-  if (number % 2 === 0) {
+  if (number % 3 === 0) {
     return "Even";
   }
   return "Odd";
