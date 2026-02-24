@@ -46,5 +46,9 @@ function isEven(number) {
 
 console.log(isEven(7)); // Odd
 
+const greet = (name) => {
+  return "Hello " + name;
+};
 
+console.log(greet("Sanjid"));
 
