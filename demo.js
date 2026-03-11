@@ -51,4 +51,9 @@ const greet = (name) => {
 };
 
 console.log(greet("Sanjid"));
+function celsiusToFahrenheit(celsius) {
+  return (celsius * 9/5) + 32;
+}
 
+// Example
+console.log(celsiusToFahrenheit(25)); // 77°F
