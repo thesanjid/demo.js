@@ -57,3 +57,19 @@ function celsiusToFahrenheit(celsius) {
 
 // Example
 console.log(celsiusToFahrenheit(25)); // 77°F
+function capitalizeFirstLetter(text) {
+  return text.charAt(0).toUpperCase() + text.slice(1);
+}
+
+function formatDate(dateString) {
+  const date = new Date(dateString);
+  return date.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric"
+  });
+}
+
+// Example
+console.log(formatDate("2026-03-10"));
+// Output: March 10, 2026
