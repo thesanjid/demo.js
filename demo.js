@@ -81,3 +81,17 @@ console.log(capitalizeFirstLetter("javascript"));
 // Example
 console.log(formatDate("2026-03-10"));
 // Output: March 10, 2026
+
+
+const users = [
+  { name: "Sanjid", age: 25 },
+  { name: "Rahim", age: 30 },
+  { name: "Karim", age: 20 }
+];
+
+// Get names of users above 22
+const result = users
+  .filter(user => user.age > 22)
+  .map(user => user.name);
+
+console.log(result); // ["Sanjid", "Rahim"]
