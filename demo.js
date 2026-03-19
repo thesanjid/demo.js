@@ -110,3 +110,15 @@ const cart = [100, 200, 50];
 const total = cart.reduce((sum, item) => sum + item, 0);
 
 console.log(total); // 350
+const blogs = [
+  { title: "JS", views: 100 },
+  { title: "Node", views: 300 },
+  { title: "React", views: 200 }
+];
+
+// Top viewed blog titles
+const topBlogs = blogs
+  .filter(blog => blog.views > 150)
+  .map(blog => blog.title);
+
+console.log(topBlogs); // ["Node", "React"]
