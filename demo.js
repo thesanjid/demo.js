@@ -95,3 +95,11 @@ const result = users
   .map(user => user.name);
 
 console.log(result); // ["Sanjid", "Rahim"]
+const users = [
+  { name: "Sanjid", active: true },
+  { name: "Rahim", active: false }
+];
+
+const activeUsers = users.filter(user => user.active);
+
+console.log(activeUsers);
