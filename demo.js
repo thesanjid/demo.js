@@ -103,3 +103,10 @@ const users = [
 const activeUsers = users.filter(user => user.active);
 
 console.log(activeUsers);
+
+
+const cart = [100, 200, 50];
+
+const total = cart.reduce((sum, item) => sum + item, 0);
+
+console.log(total); // 350
