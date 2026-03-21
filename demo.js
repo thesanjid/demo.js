@@ -129,3 +129,13 @@ const nums = [5, 2, 8, 1];
 nums.sort((a, b) => a - b);
 
 console.log(nums); // [1, 2, 5, 8]
+
+
+
+const arr = [1, 2, 3, 4];
+
+// slice (copy)
+arr.slice(1, 3); // [2,3]
+
+// splice (modify)
+arr.splice(1, 2); // remove [2,3]
