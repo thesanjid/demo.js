@@ -122,3 +122,10 @@ const topBlogs = blogs
   .map(blog => blog.title);
 
 console.log(topBlogs); // ["Node", "React"]
+
+
+const nums = [5, 2, 8, 1];
+
+nums.sort((a, b) => a - b);
+
+console.log(nums); // [1, 2, 5, 8]
