@@ -27,6 +27,8 @@ console.log(isUserLoggedIn(true));
 
 
 
+
+
 function isEven(number) {
   if (number % 2 === 0) {
     return "Even";
@@ -139,3 +141,7 @@ arr.slice(1, 3); // [2,3]
 
 // splice (modify)
 arr.splice(1, 2); // remove [2,3]
+
+const nums = [10, 20, 5];
+
+nums.some(n => n > 15); // true
