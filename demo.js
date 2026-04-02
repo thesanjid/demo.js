@@ -145,3 +145,10 @@ arr.splice(1, 2); // remove [2,3]
 const nums = [10, 20, 5];
 
 nums.some(n => n > 15); // true
+const arr = [1, 2, 3, 4];
+
+// slice (copy)
+arr.slice(1, 3); // [2,3]
+
+// splice (modify)
+arr.splice(1, 2); // remove [2,3]
