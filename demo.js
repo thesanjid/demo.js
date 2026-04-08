@@ -152,3 +152,9 @@ arr.slice(1, 3); // [2,3]
 
 // splice (modify)
 arr.splice(1, 2); // remove [2,3]
+
+function add(a, b) {
+  return a + b;
+}
+
+console.log(add(5, 3)); // 8
