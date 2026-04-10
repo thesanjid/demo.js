@@ -158,3 +158,9 @@ function add(a, b) {
 }
 
 console.log(add(5, 3)); // 8
+
+
+
+array.reduce((accumulator, currentValue) => {
+  return updatedAccumulator;
+}, initialValue);
