@@ -160,6 +160,17 @@ function add(a, b) {
 console.log(add(5, 3)); // 8
 
 
+const cart = [
+  { name: "Shirt", price: 500 },
+  { name: "Shoes", price: 1200 },
+  { name: "Cap", price: 200 }
+];
+
+const total = cart.reduce((acc, item) => acc + item.price, 0);
+
+console.log(total); // 1900
+
+
 
 array.reduce((accumulator, currentValue) => {
   return updatedAccumulator;
