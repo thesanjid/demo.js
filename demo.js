@@ -184,6 +184,19 @@ const flat = arr.reduce((acc, curr) => acc.concat(curr), []);
 console.log(flat); // [1,2,3,4,5]
 
 
+
+
+const fruits = ["apple", "banana", "apple", "orange", "banana"];
+
+const count = fruits.reduce((acc, fruit) => {
+  acc[fruit] = (acc[fruit] || 0) + 1;
+  return acc;
+}, {});
+
+console.log(count);
+// { apple: 2, banana: 2, orange: 1 }
+
+
 array.reduce((accumulator, currentValue) => {
   return updatedAccumulator;
 }, initialValue);
