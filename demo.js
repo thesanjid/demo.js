@@ -200,3 +200,7 @@ console.log(count);
 array.reduce((accumulator, currentValue) => {
   return updatedAccumulator;
 }, initialValue);
+
+
+console.log(window.location.href); // current URL
+window.location.href = "https://google.com"; // redirect
