@@ -204,3 +204,10 @@ array.reduce((accumulator, currentValue) => {
 
 console.log(window.location.href); // current URL
 window.location.href = "https://google.com"; // redirect
+
+
+if (navigator. online) {
+  console.log("You are online");
+} else {
+  console.log("You are offline");
+}
