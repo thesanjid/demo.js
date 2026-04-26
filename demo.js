@@ -222,3 +222,60 @@ xhr.onload = function () {
 };
 
 xhr.send();
+const API_URL = "https://jsonplaceholder.typicode.com/todos";
+
+// Load tasks (AJAX GET)
+function loadTasks() {
+  fetch(API_URL + "?_limit=5")
+    .then(res => res.json())
+    .then(data => {
+      const list = document.getElementById("taskList");
+      list.innerHTML = "";
+
+      data.forEach(task => {
+        const li = document.createElement("li");
+        li.innerHTML = `
+          ${task.title}
+          <button onclick="deleteTask(${task.id})">❌</button>
+        `;
+        list.appendChild(li);
+      });
+    });
+}
+
+// Add task (AJAX POST)
+function addTask() {
+  const input = document.getElementById("taskInput");
+  const newTask = input.value;
+
+  fetch(API_URL, {
+    method: "POST",
+    body: JSON.stringify({
+      title: newTask,
+      completed: false
+    }),
+    headers: {
+      "Content-type": "application/json"
+    }
+  })
+    .then(res => res.json())
+    .then(data => {
+      alert("Task added!");
+      loadTasks(); // reload list
+      input.value = "";
+    });
+}
+
+// Delete task (AJAX DELETE)
+function deleteTask(id) {
+  fetch(`${API_URL}/${id}`, {
+    method: "DELETE"
+  })
+    .then(() => {
+      alert("Task deleted!");
+      loadTasks();
+    });
+}
+
+// Load tasks when page loads
+loadTasks();
