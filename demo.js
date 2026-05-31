@@ -279,3 +279,19 @@ function deleteTask(id) {
 
 // Load tasks when page loads
 loadTasks();
+function deleteTask(taskId) {
+    fetch(`http://localhost:5000/tasks/${taskId}`, {
+        method: 'DELETE'
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Task deleted:', data);
+        alert('Task deleted successfully!');
+        
+        // Remove task from UI
+        document.getElementById(taskId).remove();
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
