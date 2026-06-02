@@ -295,3 +295,20 @@ function deleteTask(taskId) {
         console.error('Error:', error);
     });
 }
+async function deleteTask(taskId) {
+    try {
+        const response = await fetch(
+            `http://localhost:5000/tasks/${taskId}`,
+            {
+                method: 'DELETE'
+            }
+        );
+
+        const data = await response.json();
+
+        console.log(data);
+        document.getElementById(taskId).remove();
+    } catch (error) {
+        console.error(error);
+    }
+}
