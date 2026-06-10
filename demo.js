@@ -24,11 +24,6 @@ function isUserLoggedIn(isLoggedIn) {
 
 console.log(isUserLoggedIn(true));
 
-
-
-
-
-
 function isEven(number) {
   if (number % 2 === 0) {
     return "Even";
@@ -37,7 +32,6 @@ function isEven(number) {
 }
 
 console.log(isEven(7)); // Odd
-
 
 function isEven(number) {
   if (number % 3 === 0) {
@@ -79,11 +73,9 @@ function capitalizeFirstLetter(text) {
 console.log(capitalizeFirstLetter("javascript")); 
 // Javascript
 
-
 // Example
 console.log(formatDate("2026-03-10"));
 // Output: March 10, 2026
-
 
 const users = [
   { name: "Sanjid", age: 25 },
@@ -103,14 +95,10 @@ const users = [
 ];
 
 const activeUsers = users.filter(user => user.active);
-
 console.log(activeUsers);
 
-
 const cart = [100, 200, 50];
-
 const total = cart.reduce((sum, item) => sum + item, 0);
-
 console.log(total); // 350
 const blogs = [
   { title: "JS", views: 100 },
@@ -170,12 +158,9 @@ const total = cart.reduce((acc, item) => acc + item.price, 0);
 
 console.log(total); // 1900
 
-
-
 array.reduce((accumulator, currentValue) => {
   return updatedAccumulator;
 }, initialValue);
-
 
 const arr = [[1, 2], [3, 4], [5]];
 
@@ -265,7 +250,6 @@ function addTask() {
       input.value = "";
     });
 }
-
 // Delete task (AJAX DELETE)
 function deleteTask(id) {
   fetch(`${API_URL}/${id}`, {
@@ -276,7 +260,6 @@ function deleteTask(id) {
       loadTasks();
     });
 }
-
 // Load tasks when page loads
 loadTasks();
 function deleteTask(taskId) {
