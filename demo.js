@@ -307,21 +307,14 @@ const fs = require('fs');
 fs.readFile('file.txt', 'utf8', (err, data) => {
     console.log(data);
 });
-
 console.log('Done');
-
-
 const fs = require('fs');
 
 fs.readFile('file.txt', 'utf8', (err, data) => {
     console.log(data);
 });
-
 console.log('Done');
-
 const fs = require('fs');
-
 const data = fs.readFileSync('data.txt', 'utf8');
 console.log(data);
-
 
