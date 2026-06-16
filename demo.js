@@ -317,4 +317,25 @@ console.log('Done');
 const fs = require('fs');
 const data = fs.readFileSync('data.txt', 'utf8');
 console.log(data);
+const fs = require('fs').promises;
+
+async function fileOperations() {
+    try {
+        await fs.writeFile('data.txt', 'Hello World');
+        console.log('Created');
+
+        const data = await fs.readFile('data.txt', 'utf8');
+        console.log(data);
+
+        await fs.appendFile('data.txt', '\nUpdated Data');
+        console.log('Updated');
+
+        await fs.unlink('data.txt');
+        console.log('Deleted');
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+fileOperations();
 
