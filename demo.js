@@ -343,5 +343,16 @@ fs.writeFile('data.txt', 'Hello World', (err) => {
     console.log('File created successfully');
 });
 
+
+
+
+console.log('Start');
+
+fs.readFile('data.txt', 'utf8', (err, data) => {
+    console.log(data);
+});
+
+console.log('End');
+
 fileOperations();
 
