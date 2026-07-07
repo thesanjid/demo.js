@@ -364,4 +364,13 @@ fs.readFile('data.txt', 'utf8', (err, data) => {
 console.log('End');
 
 
+console.log('satrt');
+fs.readFile('data.text', 'utf8', (err, date) =>{
+ console.log(date);
+});
+console.log('End');
+fileOperation() ;
+
+
+
 
