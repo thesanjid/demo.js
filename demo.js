@@ -361,13 +361,27 @@ fs.readFile('data.txt', 'utf8', (err, data) => {
     console.log(data);
 });
 
-console.log('End');
+const fs = require('fs').promises;
 
+async function fileOperations() {
+    try {
+        await fs.writeFile('data.txt', 'Hello World');
+        console.log('Created');
 
-console.log('satrt');
-fs.readFile('data.text', 'utf8', (err, date) =>{
- console.log(date);
-});
+        const data = await fs.readFile('data.txt', 'utf8');
+        console.log(data);
+
+        await fs.appendFile('data.txt', '\nUpdated Data');
+        console.log('Updated');
+
+        await fs.unlink('data.txt');
+        console.log('Deleted');
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+fileOperations();
 console.log('End');
 fileOperation() ;
 
