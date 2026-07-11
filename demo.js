@@ -381,10 +381,12 @@ async function fileOperations() {
     }
 }
 
-fileOperations();
-console.log('End');
-fileOperation() ;
+const fs = require('fs');
 
+fs.appendFile('data.txt', '\nNew Data Added', (err) => {
+    if (err) throw err;
+    console.log('File updated');
+});
 
 
 
