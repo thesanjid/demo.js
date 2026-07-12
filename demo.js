@@ -387,6 +387,11 @@ fs.appendFile('data.txt', '\nNew Data Added', (err) => {
     if (err) throw err;
     console.log('File updated');
 });
+const fs = require('fs');
 
+fs.writeFile('data.txt', 'Hello World', (err) => {
+    if (err) throw err;
+    console.log('File created successfully');
+});
 
 
