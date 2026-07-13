@@ -393,5 +393,15 @@ fs.writeFile('data.txt', 'Hello World', (err) => {
     if (err) throw err;
     console.log('File created successfully');
 });
+const fs = require('fs');
+
+fs.writeFileSync('data.txt', 'Hello World');
+console.log('File created successfully');
+
+
+
+
+
+
 
 
