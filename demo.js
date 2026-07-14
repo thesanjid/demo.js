@@ -398,6 +398,14 @@ const fs = require('fs');
 fs.writeFileSync('data.txt', 'Hello World');
 console.log('File created successfully');
 
+console.log("Start");
+
+setTimeout(() => {
+  console.log("Inside setTimeout");
+}, 0);
+
+console.log("End");
+
 
 
 
