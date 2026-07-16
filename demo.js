@@ -431,7 +431,11 @@ setTimeout(() => {
 }, 0);
 
 console.log("UI remains responsive");
+doSomething();
 
+setTimeout(() => {
+    doSomethingLater();
+}, 0);
 
 
 
