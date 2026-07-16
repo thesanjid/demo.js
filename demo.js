@@ -424,7 +424,13 @@ function processItems(items) {
 
 processItems([1, 2, 3, 4, 5]);
 
+console.log("Loading...");
 
+setTimeout(() => {
+    heavyCalculation();
+}, 0);
+
+console.log("UI remains responsive");
 
 
 
