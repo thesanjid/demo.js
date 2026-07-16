@@ -412,6 +412,17 @@ setTimeout(() => {
 }, 0);
 
 console.log("3");
+function processItems(items) {
+    if (items.length === 0) return;
+
+    console.log(items.shift());
+
+    setTimeout(() => {
+        processItems(items);
+    }, 0);
+}
+
+processItems([1, 2, 3, 4, 5]);
 
 
 
