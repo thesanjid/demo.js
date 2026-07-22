@@ -454,7 +454,23 @@ for (let i = 0; i < 1000000000; i++) {
 
 console.log("Finished");
 
+async function deleteTask(taskId) {
+    try {
+        const response = await fetch(
+            `http://localhost:5000/tasks/${taskId}`,
+            {
+                method: 'DELETE'
+            }
+        );
 
+        const data = await response.json();
+
+        console.log(data);
+        document.getElementById(taskId).remove();
+    } catch (error) {
+        console.error(error);
+    }
+}
 
 
 console.log("End");
