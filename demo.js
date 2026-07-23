@@ -474,6 +474,27 @@ async function deleteTask(taskId) {
 
 
 console.log("End");
+const express = require('express');
+const app = express();
 
+let tasks = [
+    { id: 1, title: 'Learn AJAX' },
+    { id: 2, title: 'Learn Node.js' }
+];
+
+app.delete('/tasks/:id', (req, res) => {
+    const id = parseInt(req.params.id);
+
+    tasks = tasks.filter(task => task.id !== id);
+
+    res.json({
+        success: true,
+        message: 'Task deleted successfully'
+    });
+});
+
+app.listen(5000, () => {
+    console.log('Server running on port 5000');
+});
 
 
