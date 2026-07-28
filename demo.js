@@ -552,6 +552,36 @@ readUsers();
 
 updateUser(2, "Robert");
 
+const s = require('fs').readFileSync('/dev/stdin', 'utf8').trim();
+
+function isBalanced(str) {
+    const stack = [];
+    const pairs = {
+        ')': '(',
+        ']': '[',
+        '}': '{'
+    };
+
+    for (let ch of str) {
+        if (ch === '(' || ch === '[' || ch === '{') {
+            stack.push(ch);
+        } else if (ch === ')' || ch === ']' || ch === '}') {
+            if (stack.length === 0 || stack.pop() !== pairs[ch]) {
+                return false;
+            }
+        }
+    }
+
+    return stack.length === 0;
+}
+
+if (isBalanced(s)) {
+    console.log("Brackets are balanced.");
+} else {
+    console.log("Brackets are not balanced.");
+}
+
+
 deleteUser(1);
 
 readUsers();
