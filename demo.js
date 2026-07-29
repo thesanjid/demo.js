@@ -600,4 +600,3 @@ if (hasVowel(s)) {
     console.log("The string does not contain any vowel.");
 }
 
-
