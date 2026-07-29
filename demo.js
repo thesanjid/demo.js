@@ -549,7 +549,9 @@ createUser(1, "Alice");
 createUser(2, "Bob");
 
 readUsers();
+deleteUser(1);
 
+readUsers();
 updateUser(2, "Robert");
 
 const s = require('fs').readFileSync('/dev/stdin', 'utf8').trim();
@@ -580,9 +582,22 @@ if (isBalanced(s)) {
 } else {
     console.log("Brackets are not balanced.");
 }
+const s = require('fs').readFileSync('/dev/stdin', 'utf8').trim();
 
+function hasVowel(str) {
+    const vowels = "aeiouAEIOU";
+    for (let ch of str) {
+        if (vowels.includes(ch)) {
+            return true;
+        }
+    }
+    return false;
+}
 
-deleteUser(1);
+if (hasVowel(s)) {
+    console.log("The string contains a vowel.");
+} else {
+    console.log("The string does not contain any vowel.");
+}
 
-readUsers();
 
