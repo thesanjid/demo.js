@@ -336,4 +336,18 @@ function hasVowel(str) {
   }
   return false;
 }
+fetch(url, options)
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error(error));
 
+// or with async/await
+async function getData() {
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
