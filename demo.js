@@ -351,3 +351,46 @@ async function getData() {
     console.error(error);
   }
 }
+// Array to store users
+let users = [];
+
+// CREATE
+function createUser(id, name) {
+    users.push({ id, name });
+    console.log("User Added:", users);
+}
+
+// READ
+function readUsers() {
+    console.log("All Users:", users);
+}
+
+// UPDATE
+function updateUser(id, newName) {
+    const user = users.find(user => user.id === id);
+
+    if (user) {
+        user.name = newName;
+        console.log("User Updated:", users);
+    } else {
+        console.log("User not found");
+    }
+}
+
+// DELETE
+function deleteUser(id) {
+    users = users.filter(user => user.id !== id);
+    console.log("User Deleted:", users);
+}
+
+// Example Usage
+createUser(1, "Alice");
+createUser(2, "Bob");
+
+readUsers();
+
+updateUser(2, "Robert");
+
+deleteUser(1);
+
+readUsers();
