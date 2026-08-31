@@ -430,3 +430,53 @@ app.delete('/items/:id', (req, res) => {
 });
 
 app.listen(3000);
+class CrudStore {
+  constructor() {
+    this.items = [];
+    this.nextId = 1;
+  }
+
+  // CREATE
+  create(data) {
+    const item = { id: this.nextId++, ...data };
+    this.items.push(item);
+    return item;
+  }
+
+  // READ (all)
+  readAll() {
+    return this.items;
+  }
+
+  // READ (one)
+  readOne(id) {
+    return this.items.find(item => item.id === id) || null;
+  }
+
+  // UPDATE
+  update(id, data) {
+    const index = this.items.findIndex(item => item.id === id);
+    if (index === -1) return null;
+    this.items[index] = { ...this.items[index], ...data };
+    return this.items[index];
+  }
+
+  // DELETE
+  delete(id) {
+    const index = this.items.findIndex(item => item.id === id);
+    if (index === -1) return false;
+    this.items.splice(index, 1);
+    return true;
+  }
+}
+
+// Usage
+const store = new CrudStore();
+
+const user = store.create({ name: 'Alice', age: 30 });
+console.log(store.readAll());
+console.log(store.readOne(user.id));
+store.update(user.id, { age: 31 });
+store.delete(user.id);
+
+
