@@ -453,3 +453,38 @@ module.exports = {
   CrudStore,
   startExpressServer,
 };
+const express = require('express');
+const app = express();
+app.use(express.json());
+
+let items = [];
+let nextId = 1;
+
+app.post('/items', (req, res) => {
+  const item = { id: nextId++, ...req.body };
+  items.push(item);
+  res.status(201).json(item);
+});
+
+app.get('/items', (req, res) => res.json(items));
+
+app.get('/items/:id', (req, res) => {
+  const item = items.find(i => i.id === +req.params.id);
+  item ? res.json(item) : res.status(404).end();
+});
+
+app.put('/items/:id', (req, res) => {
+  const index = items.findIndex(i => i.id === +req.params.id);
+  if (index === -1) return res.status(404).end();
+  items[index] = { ...items[index], ...req.body };
+  res.json(items[index]);
+});
+
+app.delete('/items/:id', (req, res) => {
+  const index = items.findIndex(i => i.id === +req.params.id);
+  if (index === -1) return res.status(404).end();
+  items.splice(index, 1);
+  res.status(204).end();
+});
+
+app.listen(3000);
