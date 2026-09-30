@@ -575,4 +575,28 @@ store.delete(user.id);
 
 app.listen(3000);
 
+const express = require("express");
+const tasksRouter = require("./routes/tasks");
 
+const app = express();
+app.use(express.json());
+
+app.use("/tasks", tasksRouter);
+
+// Fallback 404 for unknown routes
+app.use((req, res) => {
+  res.status(404).json({ message: "Route not found." });
+});
+
+// Basic error handler
+app.use((err, req, res, next) => {
+  console.error(err);
+  res.status(500).json({ message: "Internal server error." });
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Task API running on http://localhost:${PORT}`);
+});
+
+module.exports = app;
