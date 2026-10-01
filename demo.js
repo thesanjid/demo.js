@@ -600,3 +600,20 @@ app.listen(PORT, () => {
 });
 
 module.exports = app;
+const s = require('fs').readFileSync('/dev/stdin', 'utf8').trim();
+
+function hasVowel(str) {
+    const vowels = "aeiouAEIOU";
+    for (let ch of str) {
+        if (vowels.includes(ch)) {
+            return true;
+        }
+    }
+    return false;
+}
+
+if (hasVowel(s)) {
+    console.log("The string contains a vowel.");
+} else {
+    console.log("The string does not contain any vowel.");
+}
