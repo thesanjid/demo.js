@@ -639,9 +639,37 @@ async function request(path, { method = 'GET', body, signal } = {}) {
   if (!res.ok) throw new ApiError(res.status, await res.json().catch(() => null));
   return res.status === 204 ? null : res.json();
 }
+class ApiError extends Error {
+  constructor(status, body) {
+    super(`HTTP ${status}`);
+    this.status = status;
+    this.body = body;
+  }
+}
+
+async function request(path, { method = 'GET', body, signal } = {}) {
+  const res = await fetch(`/api${path}`, {
+    method,
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${getToken()}`,
+    },
+    body: body ? JSON.stringify(body) : undefined,
+    signal,
+  });
+
+  if (!res.ok) throw new ApiError(res.status, await res.json().catch(() => null));
+  return res.status === 204 ? null : res.json();
+}
 
 // service layer
 export const userService = {
   get: (id, signal) => request(`/users/${id}`, { signal }),
   update: (id, data) => request(`/users/${id}`, { method: 'PATCH', body: data }),
 };
+// service layer
+export const userService = {
+  get: (id, signal) => request(`/users/${id}`, { signal }),
+  update: (id, data) => request(`/users/${id}`, { method: 'PATCH', body: data }),
+};
+
